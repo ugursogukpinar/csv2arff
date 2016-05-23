@@ -11,7 +11,7 @@ setup(
     packages=find_packages(),
     entry_points={
         "console_scripts": [
-            "keyjen = scripts.csv2arff:main",
+            "csv2arff = scripts.csv2arff:main",
         ],
     },
     license="LICENSE.txt",

@@ -1,0 +1,6 @@
+.idea/
+scripts/*.pyc
+scripts/__pycache__
+build/
+dist/
+csv2arff.egg-info/
