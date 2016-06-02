@@ -68,7 +68,7 @@ class Csv2Arff:
 
 	def is_numeric(self, lit):
 	    'Return value of numeric literal string or ValueError exception'
-	 
+	 	if not len(lit): return 0
 	    # Handle '0'
 	    if lit == '0': return 0
 	    # Hex/Binary
