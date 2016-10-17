@@ -9,3 +9,7 @@
 ```
 $ [sudo] pip install csv2arff
 ```
+
+
+####Contributions
+[@deric](https://github.com/deric)
