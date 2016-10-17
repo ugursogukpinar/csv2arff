@@ -5,7 +5,7 @@ import numpy as np
 import sys
 
 class Csv2Arff:
-	'''	
+	'''
 		It reads csv files and determines type of attributes and saves as arff file.
 	'''
 	def __init__(self, input_csv, output_arff):
@@ -40,7 +40,7 @@ class Csv2Arff:
 				column_data = np.copy(self.data[:,i])
 				for (data_index, value) in enumerate(column_data):
 					column_data[data_index] = "'%s'" % str(value)
-					
+
 				self.data[:,i] = column_data
 
 
@@ -68,7 +68,7 @@ class Csv2Arff:
 
 	def is_numeric(self, lit):
 	    'Return value of numeric literal string or ValueError exception'
-	 	if not len(lit): return 0
+	    if not len(lit): return 0
 	    # Handle '0'
 	    if lit == '0': return 0
 	    # Hex/Binary
@@ -83,7 +83,7 @@ class Csv2Arff:
 	                return int(lit,8)
 	            except ValueError:
 	                pass
-	 
+
 	    # Int/Float/Complex
 	    try:
 	        return int(lit)
@@ -101,4 +101,4 @@ def main():
 
 if __name__ == '__main__':
 	main()
-	
+
