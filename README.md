@@ -1,15 +1,20 @@
-####csv2arff
+# csv2arff
 
-####Usage
+## Usage
 
     $ csv2arff [input_csv] [output_arff]
 
-####Installation
+## Installation
 
 ```
 $ [sudo] pip install csv2arff
 ```
 
+## Tests
 
-####Contributions
-[@deric](https://github.com/deric)
+    pip install -r requirements-dev.txt
+    make test
+
+## Contributions
+
+* [@deric](https://github.com/deric)
