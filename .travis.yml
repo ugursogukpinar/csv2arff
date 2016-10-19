@@ -7,6 +7,6 @@ python:
   - "3.4"
   - "3.5"
 # command to install dependencies
-install: "pip install --user -r requirements.txt -r requirements-dev.txt"
+install: "pip install --upgrade -r requirements.txt -r requirements-dev.txt"
 # command to run tests
 script: make test
