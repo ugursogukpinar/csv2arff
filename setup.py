@@ -1,4 +1,3 @@
-#-*-coding:utf-8-*-
 import sys
 from setuptools import *
 
@@ -11,12 +10,12 @@ setup(
     packages=find_packages(),
     entry_points={
         "console_scripts": [
-            "csv2arff = scripts.csv2arff:main",
+            "csv2arff = csv2arff.csv2arff:main",
         ],
     },
     license="LICENSE.txt",
     description="Csv to Arff converter",
-    long_description=open("README.txt").read(),
+    long_description=open("README.md").read(),
     install_requires=list(filter(None, [
         "numpy",
     ])),

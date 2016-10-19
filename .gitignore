@@ -1,6 +1,9 @@
 .idea/
-scripts/*.pyc
+*.pyc
 scripts/__pycache__
 build/
 dist/
 csv2arff.egg-info/
+.cache
+.coverage
+.DS_Store
