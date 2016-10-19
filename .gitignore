@@ -4,3 +4,5 @@ scripts/__pycache__
 build/
 dist/
 csv2arff.egg-info/
+.cache
+.coverage
