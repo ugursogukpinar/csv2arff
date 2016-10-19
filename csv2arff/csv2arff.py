@@ -4,7 +4,7 @@ import numpy as np
 import sys
 
 
-class Csv2Arff:
+class Csv2Arff():
     '''
       It reads csv files and determines type of attributes and saves
       as a ARFF file.
@@ -19,13 +19,13 @@ class Csv2Arff:
         self.write_arff()
 
     def read_csv(self):
-        print "\nReading csv file to convert arff file\n"
+        print '\nReading csv file to convert arff file'
         data = np.genfromtxt(self.input_csv, delimiter=',', dtype=None)
         self.columns = data[0]
         self.data = np.array(data[1:])
 
     def determine_attribute_types(self):
-        print "\nCalculating attribute types\n"
+        print '\nCalculating attribute types'
         for (i, attribute) in enumerate(self.columns):
             unique_values = list(set(self.data[:, i]))
 
@@ -49,7 +49,7 @@ class Csv2Arff:
                 self.data[:, i] = column_data
 
     def write_arff(self):
-        print "\nWriting as arff file\n"
+        print '\nWriting as arff file'
         new_file = open(self.output_arff, 'w')
 
         # Write relation

@@ -2,7 +2,7 @@ import os
 import unittest
 import tempfile
 import difflib
-from scripts import csv2arff
+import csv2arff
 
 
 class TestCsv2Arff(unittest.TestCase):

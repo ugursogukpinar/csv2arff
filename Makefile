@@ -8,4 +8,4 @@ fix:
 	autopep8 scripts --recursive --in-place
 
 test:
-	pytest --pep8 --cov
+	pytest --pep8 --cov -s

@@ -10,7 +10,7 @@ setup(
     packages=find_packages(),
     entry_points={
         "console_scripts": [
-            "csv2arff = scripts.csv2arff:main",
+            "csv2arff = csv2arff.csv2arff:main",
         ],
     },
     license="LICENSE.txt",
