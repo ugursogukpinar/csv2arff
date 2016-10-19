@@ -1,7 +1,7 @@
 all: test
 
 dev:
-	pip install -r requirements-dev.txt
+	pip install -r requirements.txt -r requirements-dev.txt
 
 # auto correct indentation issues
 fix:
