@@ -5,4 +5,7 @@ dev:
 
 # auto correct indentation issues
 fix:
-	autopep8 scripts --recursive  --select=E101,E121 --in-place
+	autopep8 scripts --recursive --in-place
+
+test:
+	pytest --pep8 --cov
