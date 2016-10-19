@@ -1,10 +1,12 @@
+#-*-coding:utf-8-*-
+
 import sys
 from setuptools import *
 
 setup(
     name="csv2arff",
-    version="1.4",
-    author="Uğur Soğukpınar",
+    version="1.8",
+    author=u"Uğur Soğukpınar",
     author_email="sogukpinar.ugur@gmail.com",
     url="https://github.com/ugursogukpinar/csv2arff",
     packages=find_packages(),
