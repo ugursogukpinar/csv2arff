@@ -1,5 +1,5 @@
 .idea/
-scripts/*.pyc
+*.pyc
 scripts/__pycache__
 build/
 dist/

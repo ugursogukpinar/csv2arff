@@ -1,4 +1,4 @@
-all: dev
+all: test
 
 dev:
 	pip install -r requirements-dev.txt
