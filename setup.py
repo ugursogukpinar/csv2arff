@@ -1,7 +1,6 @@
-#-*-coding:utf-8-*-
+# -*-coding:utf-8-*-
 
-import sys
-from setuptools import *
+from setuptools import setup, find_packages
 
 setup(
     name="csv2arff",
@@ -17,8 +16,18 @@ setup(
     },
     license="LICENSE.txt",
     description="Csv to Arff converter",
-    long_description=open("README.md").read(),
+    long_description=open("README.rst").read(),
     install_requires=list(filter(None, [
         "numpy",
     ])),
+    classifiers=[
+        "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 2",
+        "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.3",
+        "Programming Language :: Python :: 3.4",
+        "Programming Language :: Python :: 3.5",
+    ]
 )
