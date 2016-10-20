@@ -3,6 +3,7 @@
 
 import argparse
 import numpy as np
+import sys
 
 
 class Csv2Arff():
@@ -14,6 +15,8 @@ class Csv2Arff():
     def __init__(self, args):
         self.args = args
         self.attribute_types = {}
+        if self.args.input == self.args.output:
+            sys.exit("input file can't be the same as the output file!")
         self.read_csv()
         self.determine_attribute_types()
         self.write_arff()

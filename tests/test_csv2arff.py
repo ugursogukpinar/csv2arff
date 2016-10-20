@@ -66,6 +66,10 @@ class TestCsv2Arff(unittest.TestCase):
         finally:
             os.remove(fileOut)
 
+    def test_invalid_args(self):
+        with self.assertRaises(SystemExit):
+            csv2arff.Csv2Arff(Namespace(input='foo', output='foo'))
+
     def expectedCsv1(self, filename):
         ret = """@relation %s
 
