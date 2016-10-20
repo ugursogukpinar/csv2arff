@@ -65,7 +65,7 @@ class Csv2Arff():
         # Prepare data
         lines = []
         for row in self.data:
-            lines.append(','.join(str(x) for x in row))
+            lines.append(','.join(row))
 
         # Write data
         new_file.write('@data\n')
