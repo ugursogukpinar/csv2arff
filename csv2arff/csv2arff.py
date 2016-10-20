@@ -59,16 +59,15 @@ class Csv2Arff():
         new_file = open(self.args.output, 'w')
 
         # name from CLI arguments
-        name = ''
-        if hasattr(self.args, 'name'):
+        name = self.args.output
+        if hasattr(self.args, 'name') and self.args.name is not None:
             name = self.args.name
-        else:
+        elif '.' in str(name):
             # name without extension
-            if '.' in self.args.output:
-                pos = self.args.output.rfind('.')
-                name = self.args.output[:pos]
-            else:
-                name = self.args.output
+            pos = name.rfind('.')
+            name = name[:pos]
+        else:
+            name = self.args.output
 
         # Write relation
         new_file.write('@relation ' + str(name) + '\n\n')
