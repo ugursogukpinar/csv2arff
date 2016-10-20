@@ -23,7 +23,7 @@ class TestCsv2Arff(unittest.TestCase):
             self.writeContent(tmpIn, self.csv1)
 
             csv2arff.Csv2Arff(Namespace(input=tmpIn, output=tmpOut,
-                                        type='numeric'))
+                                        type='numeric', delimiter=','))
             self.assertFileContent(self.expectedCsv1(tmpOut), tmpOut)
         finally:
             os.remove(tmpIn)
@@ -36,7 +36,7 @@ class TestCsv2Arff(unittest.TestCase):
             self.writeContent(tmpIn, self.csv1)
 
             csv2arff.Csv2Arff(Namespace(input=tmpIn, output=tmpOut,
-                                        type='REAL'))
+                                        type='REAL', delimiter=','))
             self.assertFileContent(self.expectedCsv2(tmpOut), tmpOut)
         finally:
             os.remove(tmpIn)
@@ -48,7 +48,20 @@ class TestCsv2Arff(unittest.TestCase):
         fileOut = tempfile.mkstemp()[1]
         try:
             csv2arff.Csv2Arff(Namespace(input=fileIn, output=fileOut,
-                                        name='t1', type='numeric'))
+                                        name='t1', type='numeric',
+                                        delimiter=','))
+            self.compareFiles(fileExp, fileOut)
+        finally:
+            os.remove(fileOut)
+
+    def test_t2(self):
+        fileIn = self.base_path + '/data/t2.csv'
+        fileExp = self.base_path + '/data/t2.arff'
+        fileOut = tempfile.mkstemp()[1]
+        try:
+            csv2arff.Csv2Arff(Namespace(input=fileIn, output=fileOut,
+                                        name='t2', type='numeric',
+                                        delimiter=',', verbose=True))
             self.compareFiles(fileExp, fileOut)
         finally:
             os.remove(fileOut)

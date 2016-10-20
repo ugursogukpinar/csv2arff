@@ -21,7 +21,8 @@ class Csv2Arff():
     def read_csv(self):
         if self.verbose():
             print("Reading CSV file '%s'" % (self.args.input))
-        data = np.genfromtxt(self.args.input, delimiter=',', dtype='str')
+        data = np.genfromtxt(self.args.input, delimiter=self.args.delimiter,
+                             dtype='str')
         self.columns = data[0]
         self.data = np.array(data[1:])
 
@@ -132,6 +133,8 @@ def main():
     parser.add_argument('-n', '--name', help='ARFF relation name')
     parser.add_argument('-t', '--type', help='Default ARFF type',
                         default='numeric')
+    parser.add_argument('-d', '--delimiter', help='CSV delimiter',
+                        default=',')
     parser.add_argument('-v', '--verbose', action='store_true',
                         help="verbose output")
     parser.add_argument('input', help='input CSV file name')
