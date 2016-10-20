@@ -40,7 +40,7 @@ class Csv2Arff():
                     str(unique[unique_value_index])) is not False):
                 unique_value_index += 1
 
-            self.attribute_types[attribute] = self.args.type
+            self.attribute_types[attribute] = 'numeric'
 
             if (unique_value_index < len(unique)):
                 unique.sort()
@@ -134,8 +134,6 @@ class Csv2Arff():
 def main():
     parser = argparse.ArgumentParser(prog='csv2arff')
     parser.add_argument('-n', '--name', help='ARFF relation name')
-    parser.add_argument('-t', '--type', help='Default ARFF type',
-                        default='numeric')
     parser.add_argument('-d', '--delimiter', help='CSV delimiter',
                         default=',')
     parser.add_argument('-v', '--verbose', action='store_true',

@@ -23,21 +23,8 @@ class TestCsv2Arff(unittest.TestCase):
             self.writeContent(tmpIn, self.csv1)
 
             csv2arff.Csv2Arff(Namespace(input=tmpIn, output=tmpOut,
-                                        type='numeric', delimiter=','))
+                                        delimiter=','))
             self.assertFileContent(self.expectedCsv1(tmpOut), tmpOut)
-        finally:
-            os.remove(tmpIn)
-            os.remove(tmpOut)
-
-    def test_type(self):
-        tmpIn = tempfile.mkstemp()[1]
-        tmpOut = tempfile.mkstemp()[1]
-        try:
-            self.writeContent(tmpIn, self.csv1)
-
-            csv2arff.Csv2Arff(Namespace(input=tmpIn, output=tmpOut,
-                                        type='REAL', delimiter=','))
-            self.assertFileContent(self.expectedCsv2(tmpOut), tmpOut)
         finally:
             os.remove(tmpIn)
             os.remove(tmpOut)
@@ -48,8 +35,7 @@ class TestCsv2Arff(unittest.TestCase):
         fileOut = tempfile.mkstemp()[1]
         try:
             csv2arff.Csv2Arff(Namespace(input=fileIn, output=fileOut,
-                                        name='t1', type='numeric',
-                                        delimiter=','))
+                                        name='t1', delimiter=','))
             self.compareFiles(fileExp, fileOut)
         finally:
             os.remove(fileOut)
@@ -60,8 +46,8 @@ class TestCsv2Arff(unittest.TestCase):
         fileOut = tempfile.mkstemp()[1]
         try:
             csv2arff.Csv2Arff(Namespace(input=fileIn, output=fileOut,
-                                        name='t2', type='numeric',
-                                        delimiter=',', verbose=True))
+                                        name='t2', delimiter=',',
+                                        verbose=True))
             self.compareFiles(fileExp, fileOut)
         finally:
             os.remove(fileOut)
@@ -75,17 +61,6 @@ class TestCsv2Arff(unittest.TestCase):
 
 @attribute foo numeric
 @attribute bar numeric
-@attribute class {'A','B'}
-@data
-1,2,'A'
-3,4,'B'""" % (filename)
-        return ret
-
-    def expectedCsv2(self, filename):
-        ret = """@relation %s
-
-@attribute foo REAL
-@attribute bar REAL
 @attribute class {'A','B'}
 @data
 1,2,'A'
