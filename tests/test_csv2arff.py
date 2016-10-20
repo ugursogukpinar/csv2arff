@@ -16,6 +16,43 @@ class TestCsv2Arff(unittest.TestCase):
 3,4,B
 '''
 
+    def test_simple(self):
+        tmpIn = tempfile.mkstemp()[1]
+        tmpOut = tempfile.mkstemp()[1]
+        try:
+            self.writeContent(tmpIn, self.csv1)
+
+            csv2arff.Csv2Arff(Namespace(input=tmpIn, output=tmpOut,
+                                        type='numeric'))
+            self.assertFileContent(self.expectedCsv1(tmpOut), tmpOut)
+        finally:
+            os.remove(tmpIn)
+            os.remove(tmpOut)
+
+    def test_type(self):
+        tmpIn = tempfile.mkstemp()[1]
+        tmpOut = tempfile.mkstemp()[1]
+        try:
+            self.writeContent(tmpIn, self.csv1)
+
+            csv2arff.Csv2Arff(Namespace(input=tmpIn, output=tmpOut,
+                                        type='REAL'))
+            self.assertFileContent(self.expectedCsv2(tmpOut), tmpOut)
+        finally:
+            os.remove(tmpIn)
+            os.remove(tmpOut)
+
+    def test_t1(self):
+        fileIn = self.base_path + '/data/t1.csv'
+        fileExp = self.base_path + '/data/t1.arff'
+        fileOut = tempfile.mkstemp()[1]
+        try:
+            csv2arff.Csv2Arff(Namespace(input=fileIn, output=fileOut,
+                                        name='t1', type='numeric'))
+            self.compareFiles(fileExp, fileOut)
+        finally:
+            os.remove(fileOut)
+
     def expectedCsv1(self, filename):
         ret = """@relation %s
 
@@ -27,28 +64,16 @@ class TestCsv2Arff(unittest.TestCase):
 3,4,'B'""" % (filename)
         return ret
 
-    def test_simple(self):
-        tmpIn = tempfile.mkstemp()[1]
-        tmpOut = tempfile.mkstemp()[1]
-        try:
-            self.writeContent(tmpIn, self.csv1)
+    def expectedCsv2(self, filename):
+        ret = """@relation %s
 
-            csv2arff.Csv2Arff(Namespace(input=tmpIn, output=tmpOut))
-            self.assertFileContent(self.expectedCsv1(tmpOut), tmpOut)
-        finally:
-            os.remove(tmpIn)
-            os.remove(tmpOut)
-
-    def test_t1(self):
-        fileIn = self.base_path + '/data/t1.csv'
-        fileExp = self.base_path + '/data/t1.arff'
-        fileOut = tempfile.mkstemp()[1]
-        try:
-            csv2arff.Csv2Arff(Namespace(input=fileIn, output=fileOut,
-                                        name='t1'))
-            self.compareFiles(fileExp, fileOut)
-        finally:
-            os.remove(fileOut)
+@attribute foo REAL
+@attribute bar REAL
+@attribute class {'A','B'}
+@data
+1,2,'A'
+3,4,'B'""" % (filename)
+        return ret
 
     def diff(self, first, second, msg=None):
         """Assert that two strings are equal.
