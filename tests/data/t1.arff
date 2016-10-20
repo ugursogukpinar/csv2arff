@@ -1,0 +1,62 @@
+@relation t1
+
+@attribute Id numeric
+@attribute Elevation numeric
+@attribute Aspect numeric
+@attribute Slope numeric
+@attribute Horizontal_Distance_To_Hydrology numeric
+@attribute Vertical_Distance_To_Hydrology numeric
+@attribute Horizontal_Distance_To_Roadways numeric
+@attribute Hillshade_9am numeric
+@attribute Hillshade_Noon numeric
+@attribute Hillshade_3pm numeric
+@attribute Horizontal_Distance_To_Fire_Points numeric
+@attribute Wilderness_Area1 numeric
+@attribute Wilderness_Area2 numeric
+@attribute Wilderness_Area3 numeric
+@attribute Wilderness_Area4 numeric
+@attribute Soil_Type1 numeric
+@attribute Soil_Type2 numeric
+@attribute Soil_Type3 numeric
+@attribute Soil_Type4 numeric
+@attribute Soil_Type5 numeric
+@attribute Soil_Type6 numeric
+@attribute Soil_Type7 numeric
+@attribute Soil_Type8 numeric
+@attribute Soil_Type9 numeric
+@attribute Soil_Type10 numeric
+@attribute Soil_Type11 numeric
+@attribute Soil_Type12 numeric
+@attribute Soil_Type13 numeric
+@attribute Soil_Type14 numeric
+@attribute Soil_Type15 numeric
+@attribute Soil_Type16 numeric
+@attribute Soil_Type17 numeric
+@attribute Soil_Type18 numeric
+@attribute Soil_Type19 numeric
+@attribute Soil_Type20 numeric
+@attribute Soil_Type21 numeric
+@attribute Soil_Type22 numeric
+@attribute Soil_Type23 numeric
+@attribute Soil_Type24 numeric
+@attribute Soil_Type25 numeric
+@attribute Soil_Type26 numeric
+@attribute Soil_Type27 numeric
+@attribute Soil_Type28 numeric
+@attribute Soil_Type29 numeric
+@attribute Soil_Type30 numeric
+@attribute Soil_Type31 numeric
+@attribute Soil_Type32 numeric
+@attribute Soil_Type33 numeric
+@attribute Soil_Type34 numeric
+@attribute Soil_Type35 numeric
+@attribute Soil_Type36 numeric
+@attribute Soil_Type37 numeric
+@attribute Soil_Type38 numeric
+@attribute Soil_Type39 numeric
+@attribute Soil_Type40 numeric
+@attribute Cover_Type numeric
+@data
+1,2596,51,3,258,0,510,221,232,148,6279,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,5
+2,2590,56,2,212,-6,390,220,235,151,6225,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,5
+3,2804,139,9,268,65,3180,234,238,135,6121,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2
