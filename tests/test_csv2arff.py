@@ -3,6 +3,7 @@ import unittest
 import tempfile
 import difflib
 import csv2arff
+from argparse import Namespace
 
 
 class TestCsv2Arff(unittest.TestCase):
@@ -32,41 +33,68 @@ class TestCsv2Arff(unittest.TestCase):
         try:
             self.writeContent(tmpIn, self.csv1)
 
-            csv2arff.Csv2Arff(tmpIn, tmpOut)
-            self.assertFileConent(self.expectedCsv1(tmpOut), tmpOut)
+            csv2arff.Csv2Arff(Namespace(input=tmpIn, output=tmpOut))
+            self.assertFileContent(self.expectedCsv1(tmpOut), tmpOut)
         finally:
             os.remove(tmpIn)
+            os.remove(tmpOut)
 
-    def assertFileConent(self, expected, b, msg=None):
-        """Assert that two files are equal.
+    def test_t1(self):
+        fileIn = self.base_path + '/data/t1.csv'
+        fileExp = self.base_path + '/data/t1.arff'
+        fileOut = tempfile.mkstemp()[1]
+        try:
+            csv2arff.Csv2Arff(Namespace(input=fileIn, output=fileOut,
+                                        name='t1'))
+            self.compareFiles(fileExp, fileOut)
+        finally:
+            os.remove(fileOut)
+
+    def diff(self, first, second, msg=None):
+        """Assert that two strings are equal.
 
         If they aren't, show a nice diff.
 
         """
-        second = open(b).read()
-        self.assertTrue(isinstance(expected, str),
+        self.assertTrue(isinstance(first, str),
                         'First argument is not a string')
+
         self.assertTrue(isinstance(second, str),
                         'Second argument is not a string')
 
-        if expected != second:
-            message = ''.join(difflib.ndiff(expected.splitlines(True),
+        if first != second:
+            message = ''.join(difflib.ndiff(first.splitlines(True),
                                             second.splitlines(True)))
             if msg:
                 message += " : " + msg
-            self.fail("Files are different:\n" + message)
+            self.fail("Diff:\n" + message)
+
+    def assertFileContent(self, expected, file, msg=None):
+        """Assert file content.
+
+        If they aren't, show a nice diff.
+
+        """
+        second = open(file).read()
+
+        self.assertTrue(isinstance(second, str),
+                        'Second argument is not a string')
+        self.diff(expected, second)
+
+    def compareFiles(self, expected, file, msg=None):
+        """Compare two files
+
+        If aren't the same, show a nice diff.
+
+        """
+        a = open(expected).read()
+        b = open(file).read()
+        self.diff(a, b)
 
     def writeContent(self, filename, text):
         f = open(os.path.join(self.base_path, filename), 'w')
         f.write(text)
         f.close()
-
-    def test_split(self):
-        s = 'hello world'
-        self.assertEqual(s.split(), ['hello', 'world'])
-        # check that s.split fails when the separator is not a string
-        with self.assertRaises(TypeError):
-            s.split(2)
 
 if __name__ == '__main__':
     unittest.main()
