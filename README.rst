@@ -1,6 +1,14 @@
 csv2arff
 ========
 
+|PyPI Version| |Build Status|
+
+.. |PyPI Version| image:: http://img.shields.io/pypi/v/csv2arff.svg
+   :target: https://pypi.python.org/pypi/csv2arff
+.. |Build Status| image:: https://travis-ci.org/ugursogukpinar/csv2arff.svg?branch=master
+    :target: https://travis-ci.org/ugursogukpinar/csv2arff
+
+
 `|PyPI| <https://pypi.python.org/pypi/csv2arff/1.8>`_ `|Build
 Status| <https://travis-ci.org/ugursogukpinar/csv2arff>`_
 
@@ -14,7 +22,9 @@ Usage
 Installation
 ------------
 
-$ [sudo] pip install csv2arff
+::
+
+    $ [sudo] pip install csv2arff
 
 Compatibility
 -------------
