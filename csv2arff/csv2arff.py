@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*-coding:utf-8-*-
 
 import numpy as np
 import sys
@@ -19,28 +20,28 @@ class Csv2Arff():
         self.write_arff()
 
     def read_csv(self):
-        print '\nReading csv file to convert arff file'
-        data = np.genfromtxt(self.input_csv, delimiter=',', dtype=None)
+        print('\nReading csv file to convert arff file')
+        data = np.genfromtxt(self.input_csv, delimiter=',', dtype='str')
         self.columns = data[0]
         self.data = np.array(data[1:])
 
     def determine_attribute_types(self):
-        print '\nCalculating attribute types'
+        print('\nCalculating attribute types')
         for (i, attribute) in enumerate(self.columns):
-            unique_values = list(set(self.data[:, i]))
+            unique = list(set(self.data[:, i]))
 
             unique_value_index = 0
-            while (unique_value_index < len(unique_values) and self.is_numeric(
-                    str(unique_values[unique_value_index])) is not False):
+            while (unique_value_index < len(unique) and self.is_numeric(
+                    str(unique[unique_value_index])) is not False):
                 unique_value_index += 1
 
             self.attribute_types[attribute] = 'numeric'
 
-            if (unique_value_index < len(unique_values)):
-                unique_values = ["'%s'" %
-                                 str(value) for value in unique_values]
+            if (unique_value_index < len(unique)):
+                unique.sort()
+                unique = ["'%s'" % value for value in unique]
                 self.attribute_types[
-                    attribute] = '{' + ','.join(unique_values) + '}'
+                    attribute] = '{' + ','.join(unique) + '}'
 
                 column_data = np.copy(self.data[:, i])
                 for (data_index, value) in enumerate(column_data):
@@ -49,7 +50,7 @@ class Csv2Arff():
                 self.data[:, i] = column_data
 
     def write_arff(self):
-        print '\nWriting as arff file'
+        print('\nWriting as arff file')
         new_file = open(self.output_arff, 'w')
 
         # Write relation
@@ -64,7 +65,7 @@ class Csv2Arff():
         # Prepare data
         lines = []
         for row in self.data:
-            lines.append(','.join(row))
+            lines.append(','.join(str(x) for x in row))
 
         # Write data
         new_file.write('@data\n')

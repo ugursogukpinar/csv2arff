@@ -7,3 +7,4 @@ csv2arff.egg-info/
 .cache
 .coverage
 .DS_Store
+.python-version
