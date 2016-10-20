@@ -16,7 +16,7 @@ setup(
     },
     license="LICENSE.txt",
     description="Csv to Arff converter",
-    long_description=open("README.md").read(),
+    long_description=open("README.rst").read(),
     install_requires=list(filter(None, [
         "numpy",
     ])),
