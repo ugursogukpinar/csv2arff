@@ -13,7 +13,27 @@ Usage
 
 ::
 
-    $ csv2arff [input_csv] [output_arff]
+    $ csv2arff {input csv} {output arff}
+
+see help for other options:
+
+::
+    $ csv2arff -h
+
+    usage: csv2arff [-h] [-n NAME] [-t TYPE] [-d DELIMITER] [-v] input output
+
+    positional arguments:
+      input                 input CSV file name
+      output                output ARFF file name
+
+    optional arguments:
+      -h, --help            show this help message and exit
+      -n NAME, --name NAME  ARFF relation name
+      -t TYPE, --type TYPE  Default ARFF type
+      -d DELIMITER, --delimiter DELIMITER
+                            CSV delimiter
+      -v, --verbose         verbose output
+
 
 Installation
 ------------
