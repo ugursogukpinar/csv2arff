@@ -8,10 +8,6 @@ csv2arff
 .. |Build Status| image:: https://travis-ci.org/ugursogukpinar/csv2arff.svg?branch=master
     :target: https://travis-ci.org/ugursogukpinar/csv2arff
 
-
-`|PyPI| <https://pypi.python.org/pypi/csv2arff/1.8>`_ `|Build
-Status| <https://travis-ci.org/ugursogukpinar/csv2arff>`_
-
 Usage
 -----
 
@@ -48,7 +44,3 @@ Contributions
 -------------
 
 -  `@deric <https://github.com/deric>`_
-
-.. |PyPI| image:: https://img.shields.io/pypi/v/csv2arff.svg
-.. |Build
-Status| image:: https://travis-ci.org/ugursogukpinar/csv2arff.svg?branch=master
