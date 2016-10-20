@@ -2,7 +2,6 @@
 
 from setuptools import *
 
-
 setup(
     name="csv2arff",
     version="1.8",
