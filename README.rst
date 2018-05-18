@@ -18,6 +18,7 @@ Usage
 see help for other options:
 
 ::
+
     $ csv2arff -h
 
     usage: csv2arff [-h] [-n NAME] [-d DELIMITER] [-v] input output
