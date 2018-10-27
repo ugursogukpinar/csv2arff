@@ -8,9 +8,6 @@ fix:
 	autopep8 csv2arff --recursive --in-place
 	autopep8 tests --recursive --in-place
 
-lint:
-	flake8 csv2arff/csv2arff.py setup.py tests/test_csv2arff.py
-
 test:
 	pytest --pep8 --cov -s
 

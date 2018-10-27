@@ -9,4 +9,3 @@ install: "pip install --upgrade -r requirements.txt -r requirements-dev.txt"
 # command to run tests
 script:
   - make test
-  - make lint
