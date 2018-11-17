@@ -33,6 +33,7 @@ see help for other options:
       -d DELIMITER, --delimiter DELIMITER
                             CSV delimiter
       -v, --verbose         verbose output
+      -nl, --nolabel        first line without labels
 
 
 Installation
