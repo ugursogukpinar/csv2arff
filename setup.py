@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="csv2arff",
-    version="1.8",
+    version="2.0",
     author=u"Uğur Soğukpınar",
     author_email="sogukpinar.ugur@gmail.com",
     url="https://github.com/ugursogukpinar/csv2arff",
