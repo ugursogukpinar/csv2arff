@@ -79,11 +79,7 @@ class Csv2Arff():
         # Write relation
         new_file.write('@relation ' + str(name) + '\n\n')
 
-        # Write attributes
-        for column in self.columns:
-            new_file.write(
-                "@attribute %s %s\n" %
-                (column, self.attribute_types[column]))
+        self.write_attributes(new_file)
 
         # Prepare data
         lines = []
@@ -135,6 +131,24 @@ class Csv2Arff():
             pass
 
         return False
+
+    def write_attributes(self, new_file):
+        if self.is_without_labels():
+            self._write_attributes_without_labels(new_file)
+        else:
+            self._write_attributes_with_labels(new_file)
+
+    def _write_attributes_without_labels(self, new_file):
+        for index, column in enumerate(self.columns):
+            new_file.write(
+                "@attribute col%i %s\n" %
+                (index, self.attribute_types[column]))
+
+    def _write_attributes_with_labels(self, new_file):
+        for column in self.columns:
+            new_file.write(
+                "@attribute %s %s\n" %
+                (column, self.attribute_types[column]))
 
 
 def main():
