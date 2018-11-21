@@ -65,3 +65,4 @@ Contributions
 -------------
 
 -  `@deric <https://github.com/deric>`_
+-  `@KordianD <https://github.com/KordianD>`_
